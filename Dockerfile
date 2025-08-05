@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y sudo wget unzip dos2unix python-is-python3 python3-dev mariadb-server && \
     apt-get clean
 
-COPY . .
+RUN wget https://raw.githubusercontent.com/amidevous/xui.one/master/install.sh -O install.sh && chmod 777 install.sh
 
 # Create a wrapper script that checks for installation
 RUN echo '#!/bin/bash\n\
