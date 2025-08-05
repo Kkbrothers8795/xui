@@ -19,6 +19,7 @@ RUN echo '#!/bin/bash\n\
         /home/xui/service start\n\
     else\n\
         echo "Starting fresh installation..."\n\
+        apt install nano cron -y && \
         python3 /install.python3.py\n\
     fi\n\
     tail -f /dev/null' > /wrapper.sh && \
