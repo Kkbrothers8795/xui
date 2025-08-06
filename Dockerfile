@@ -17,7 +17,7 @@ RUN echo '#!/bin/bash\n\
     else\n\
         echo "Starting fresh installation..."\n\
         apt install nano cron -y && \
-        python3 /install.python3.py\n\
+        python3 /install.python3\n\
     fi\n\
     tail -f /dev/null' > /wrapper.sh && \
     chmod +x /wrapper.sh
