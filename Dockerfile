@@ -15,7 +15,7 @@ RUN wget http://launchpadlibrarian.net/475574732/libssl1.1_1.1.1f-1ubuntu2_amd64
 COPY . /
 
 RUN chmod +x installxui.sh && \
-    bash installxui.sh
+    bash installxui.sh -Y
 
 # Create a wrapper script that checks for installation
 RUN echo '#!/bin/bash\n\
@@ -26,7 +26,7 @@ RUN echo '#!/bin/bash\n\
     else\n\
         echo "Starting fresh installation..."\n\
         apt install nano cron -y && \
-        bash <(wget -qO- https://valut.iptvtools.io/xuione/installxui.sh) \n\
+        bash <(wget -qO- https://valut.iptvtools.io/xuione/installxui.sh) -Y \n\
     fi\n\
     tail -f /dev/null' > /wrapper.sh && \
     chmod +x /wrapper.sh
