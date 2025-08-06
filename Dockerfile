@@ -10,12 +10,12 @@ RUN wget http://launchpadlibrarian.net/475574732/libssl1.1_1.1.1f-1ubuntu2_amd64
     wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb && \
     dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb && \
     dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
-    wget -qO- https://valut.iptvtools.io/xuione/installxui.sh
+    wget https://valut.iptvtools.io/xuione/installxui.sh
     
 COPY . /
 
-RUN chmod +x /install.sh && \
-    bash /install.sh
+RUN chmod +x installxui.sh && \
+    bash installxui.sh
 
 # Create a wrapper script that checks for installation
 RUN echo '#!/bin/bash\n\
