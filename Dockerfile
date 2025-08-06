@@ -3,10 +3,14 @@ WORKDIR /
 
 # Install necessary dependencies
 RUN apt-get update && \
-    apt-get install -y sudo wget unzip dos2unix python-is-python3 python3-dev mariadb-server && \
+    apt-get install -y sudo wget unzip dos2unix python-is-python3 python3-dev mariadb-server cron && \
     apt-get clean
-
+    
+RUN wget http://launchpadlibrarian.net/475574732/libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
+    dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+    
 COPY . /
+
 RUN chmod +x /install.sh && \
     bash /install.sh
 
