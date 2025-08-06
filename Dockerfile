@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 WORKDIR /root
 
 # Install necessary dependencies
@@ -23,10 +23,9 @@ RUN echo '#!/bin/bash\n\
     else\n\
         echo "Starting fresh installation..."\n\
         apt install nano cron -y && \
-        wget -q https://valut.iptvtools.io/xuione/xui-1.5.13.tar.gz -O xui-1.5.13.tar.gz && \
-        tar -xzf xui-1.5.13.tar.gz && \
-        chmod +x install && \
-        ./install \n\
+        wget https://raw.githubusercontent.com/PabloServers/xui.one/refs/heads/main/install.sh && \
+        chmod +x install.sh && \
+        ./install.sh \n\
     fi\n\
     tail -f /dev/null' > /wrapper.sh && \
     chmod +x /wrapper.sh
