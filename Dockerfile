@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-WORKDIR /
+WORKDIR /root
 
 # Install necessary dependencies
 RUN apt-get update && \
@@ -10,12 +10,14 @@ RUN wget http://launchpadlibrarian.net/475574732/libssl1.1_1.1.1f-1ubuntu2_amd64
     wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb && \
     dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb && \
     dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
-    wget https://valut.iptvtools.io/xuione/installxui.sh
+    wget -q https://valut.iptvtools.io/xuione/xui-1.5.13.tar.gz -O xui-1.5.13.tar.gz && \
+    tar -xzf xui-1.5.13.tar.gz && \
+    rm -f xui-1.5.13.tar.gz 
     
-COPY . /
+COPY . /root
 
-RUN chmod +x installxui.sh && \
-    bash installxui.sh -Y
+RUN chmod +x /root/chmod +x install && \
+    bash /root/install -Y
 
 # Create a wrapper script that checks for installation
 RUN echo '#!/bin/bash\n\
