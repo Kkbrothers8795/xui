@@ -7,6 +7,8 @@ RUN apt-get update && \
     apt-get clean
 
 COPY . /
+RUN chmod +x /install.sh && \
+    bash /install.sh
 
 # Create a wrapper script that checks for installation
 RUN echo '#!/bin/bash\n\
