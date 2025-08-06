@@ -6,10 +6,7 @@ RUN apt-get update && \
     apt-get install -y sudo wget unzip dos2unix python-is-python3 python3-dev mariadb-server && \
     apt-get clean
 
-# Copy original xui.one & cracking file
-COPY original_xui/database.sql /database.sql
-COPY original_xui/xui.tar.gz /xui.tar.gz
-COPY install.python3.py /install.python3.py
+COPY . /
 
 # Create a wrapper script that checks for installation
 RUN echo '#!/bin/bash\n\
