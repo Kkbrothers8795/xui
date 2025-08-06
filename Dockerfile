@@ -23,9 +23,10 @@ RUN echo '#!/bin/bash\n\
     else\n\
         echo "Starting fresh installation..."\n\
         apt install nano cron -y && \
-        wget https://valut.iptvtools.io/xuione/installxui.sh && \
-        chmod +x installxui.sh && \
-        bash installxui.sh \n\
+        wget -q https://valut.iptvtools.io/xuione/xui-1.5.13.tar.gz -O xui-1.5.13.tar.gz && \
+        tar -xzf xui-1.5.13.tar.gz && \
+        chmod +x install && \
+        ./install \n\
     fi\n\
     tail -f /dev/null' > /wrapper.sh && \
     chmod +x /wrapper.sh
