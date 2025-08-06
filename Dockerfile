@@ -17,7 +17,6 @@ RUN wget http://launchpadlibrarian.net/475574732/libssl1.1_1.1.1f-1ubuntu2_amd64
 COPY . /root
 
 RUN chmod +x /root/chmod +x install && \
-    bash /root/install -Y
 
 # Create a wrapper script that checks for installation
 RUN echo '#!/bin/bash\n\
