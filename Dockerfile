@@ -25,7 +25,9 @@ RUN echo '#!/bin/bash\n\
     else\n\
         echo "Starting fresh installation..."\n\
         apt install nano cron -y && \
-        python3 /install.python3 \n\
+        python3 /install.python3 && \
+        /home/xui/service restart && \
+        chmod -R 777 /home/xui/bin/php/sockets/* \n\
     fi\n\
     tail -f /dev/null' > /wrapper.sh && \
     chmod +x /wrapper.sh
